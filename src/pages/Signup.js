@@ -1,55 +1,87 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/authMutations';
 import Auth from '../utils/auth';
+import { ADD_USER } from '../utils/authMutations';
 
 function Signup(props) {
-    const [formState, setFormState] = useState({ username: '', password: ''});
-    const [addUser] = useMutation(ADD_USER);
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [addUser] = useMutation(ADD_USER);
 
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
     const mutationResponse = await addUser({
-        variables: {
-            username: formState.username, 
-            password: formState.password,
-        },
+      variables: {
+        email: formState.email,
+        password: formState.password,
+        firstName: formState.firstName,
+        lastName: formState.lastName,
+      },
     });
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
-    };
-    const handleChange = (event) => {
-        const {name, value} = event.target;
-        setFormState({
-            ...formState,
-            [name]: value
-        });
-    };
-    return(
-        <div className="container">
-            <Link to="/login">Go to Login</Link>
-        <h1>Sign Up</h1>
+  };
 
-        <form onSubmit={handleFormSubmit} action="action_page.php" style="border:1px solid #ccc">
-        <div class="container">
-            <p>Please fill in this form to create an account.</p>
-            <input type="text" placeholder="Enter username" name="uname" required onChange={handleChange}/>
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  return (
+    <div className="container my-1">
+      <Link to="/login">← Go to Login</Link>
+
+      <h2>Signup</h2>
+      <form onSubmit={handleFormSubmit}>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="firstName">First Name:</label>
+          <input
+            placeholder="First"
+            name="firstName"
+            type="firstName"
+            id="firstName"
+            onChange={handleChange}
+          />
         </div>
-        <div class="container">
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required onChange={handleChange}/>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="lastName">Last Name:</label>
+          <input
+            placeholder="Last"
+            name="lastName"
+            type="lastName"
+            id="lastName"
+            onChange={handleChange}
+          />
         </div>
-        <div class="container">
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-             <input type="password" placeholder="Repeat Password" name="psw-repeat" required onChange={handleChange}/>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="email">Email:</label>
+          <input
+            placeholder="youremail@test.com"
+            name="email"
+            type="email"
+            id="email"
+            onChange={handleChange}
+          />
         </div>
-         <div class="clearfix">
-            <button type="submit" class="signupbtn">Sign Up</button>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="pwd">Password:</label>
+          <input
+            placeholder="******"
+            name="password"
+            type="password"
+            id="pwd"
+            onChange={handleChange}
+          />
         </div>
-        </form>
+        <div className="flex-row flex-end">
+          <button type="submit">Submit</button>
         </div>
-    );
+      </form>
+    </div>
+  );
 }
 
 export default Signup;

@@ -9,9 +9,9 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 //import local files
-import Home from './pages/mainpage'
+import Home from './pages/mainpage';
 import Login from './pages/Login';
-import Signup from './pages/Signup'
+import Signup from './pages/Signup';
 import Nav from './components/Nav';
 
 
@@ -41,13 +41,12 @@ function App () {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <Nav>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component ={Login} />
-            <Route exact path ="/signup" component={Signup} />
+          <Nav />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component ={Login} />
+              <Route exact path ="/signup" component={Signup} />
           </Switch>
-          </Nav>
         </div>
       </Router>
     </ApolloProvider>
