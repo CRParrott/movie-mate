@@ -1,9 +1,17 @@
 import React from "react";
 
-import Login from "./Login";
-import Signup from "./Signup";
+import PopularMovies from '../components/PopularMovies';
+import PopularShows from '../components/PopularShows';
+import UserWatch from '../components/UserWatch';
 
 const Home = () => {
-};
-
-export default Home;
+    return (
+      <div className="container">
+        <PopularMovies />
+        <PopularShows />
+        <UserWatch />
+      </div>
+    );
+  };
+  
+  export default Home;

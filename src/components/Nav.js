@@ -8,6 +8,11 @@ function Nav() {
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
+          <li className ="mx-1">
+            <form className = "form-inline">
+              <input type="text" className="form-control bg-dark text-white" id="search-form" placeholder="Search"></input>
+            </form>
+          </li>
           <li className="mx-1">
             <Link to="/profile">
               Profile
@@ -24,6 +29,11 @@ function Nav() {
     } else {
       return (
         <ul className="flex-row">
+            <li className ="mx-1">
+              <form className = "form-inline">
+                <input type="text" className="form-control bg-dark text-white" id="search-form" placeholder="Search"></input>
+             </form>
+          </li>
           <li className="mx-1">
             <Link to="/signup">
               Signup
