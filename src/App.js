@@ -9,9 +9,10 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 //import local files
-import Home from './components/mainpage'
-import Login from './components/pages/Login';
-import Signup from './components/pages/Signup'
+import Home from './pages/mainpage'
+import Login from './pages/Login';
+import Signup from './pages/Signup'
+import Nav from './components/Nav';
 
 
 const httpLink = createHttpLink({
@@ -40,11 +41,13 @@ function App () {
     <ApolloProvider client={client}>
       <Router>
         <div>
+          <Nav>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component ={Login} />
             <Route exact path ="/signup" component={Signup} />
           </Switch>
+          </Nav>
         </div>
       </Router>
     </ApolloProvider>
