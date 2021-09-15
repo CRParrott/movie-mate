@@ -30,5 +30,5 @@ function PopularMovies () {
     )
 };
 
-export default PopularMovies
+export default PopularMovies;
 
