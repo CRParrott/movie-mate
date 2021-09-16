@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import trendingMovies from "./api/trendingMovie";
 
 function PopularMovies () {
-    return (
+  const [loadedMovies, setLoadedMovies] = useState([])  
+  useEffect (() => {
+      setLoadedMovies(trendingMovies());
+    }, []); 
+    return(
         <>
                   <div className="cover">
         <div className="overlay"></div>
@@ -30,5 +35,5 @@ function PopularMovies () {
     )
 };
 
-export default PopularMovies
+export default PopularMovies;
 

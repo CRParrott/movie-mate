@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+
+
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/moviemate', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
