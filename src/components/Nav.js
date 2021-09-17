@@ -1,7 +1,7 @@
 import React from "react";
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
-import "../App.css";
+import "../index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
