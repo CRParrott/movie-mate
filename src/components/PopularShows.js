@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Simpsons from './img/au_disneynews_thesimpsons_season31_incarticle_poster_8f0c2ae5.jpg';
+import Dexter from './img/dexter_tv_series-197972047-large.jpg';
+import Community from './img/community_tv_series-239934497-large.jpg';
+
 function PopularShows () {
     return (
         <>
@@ -13,16 +17,13 @@ function PopularShows () {
             <div className="container-fluid text-center">
               <div className="options d-flex flex-md-row flex-wrap justify-content-center">
                 <div className="rect">
-                  <img src="" alt=""></img>
+                  <img src={Community} className="card-img-top embed-responsive-item" alt="Community"></img>
                 </div>
                 <div className="rect">
-                  <img src="" alt=""></img>
+                  <img src={Simpsons} className="card-img-top embed-responsive-item" alt="Simpsons"></img>
                 </div>
                 <div className="rect">
-                  <img src="" alt=""></img>
-                </div>
-                <div className="rect">
-                  <img src="" alt=""></img>
+                  <img src={Dexter} className="card-img-top embed-responsive-item" alt="Dexter"></img>
                 </div>
               </div>
             </div>
