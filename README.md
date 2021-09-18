@@ -15,3 +15,7 @@ I want to log in with a username and password and have my saved information acce
 ## Tools
 
 Using React, MongoDB, express, Node.js, Javascript, Bootstrap, and CSS3 we build a database and load an application to allow a user to track movies and store them to lists. As well as discover other users and connect.
+
+## Deployment
+
+Application deployed at https://thawing-meadow-80037.herokuapp.com/
